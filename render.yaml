@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: maison-elegance-v4
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SALON_NAME
+        value: Medjan Hair
+      - key: STRIPE_PAYMENT_LINK
+        sync: false
+      - key: WHATSAPP_URL
+        sync: false

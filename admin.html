@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Élégance — Administration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/"><span class="brand-mark">MH</span><span>Medjan Hair<small>Administration</small></span></a>
+      <nav class="nav"><a href="/">Retour au site</a></nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container admin-layout">
+      <section class="admin-sidebar glass-card">
+        <span class="section-kicker">Admin</span>
+        <h1 class="admin-title">Tableau de bord</h1>
+        <p class="admin-note">Identifiants initiaux à modifier avant mise en ligne : admin@votresalon.fr / change-me-now. Salon configuré : Medjan Hair.</p>
+        <form id="adminLoginForm" class="booking-form">
+          <div><label for="adminEmail">E-mail admin</label><input id="adminEmail" type="email" value="admin@votresalon.fr" required /></div>
+          <div><label for="adminPassword">Mot de passe</label><input id="adminPassword" type="password" value="change-me-now" required /></div>
+          <button class="btn btn-primary wide" type="submit">Connexion admin</button>
+        </form>
+        <button class="btn btn-light wide" type="button" id="adminLogoutBtn">Déconnexion admin</button>
+      </section>
+
+      <section class="admin-main glass-card">
+        <div class="section-heading">
+          <span class="section-kicker">Vue d’ensemble</span>
+          <h2>Réservations, messages et clientes</h2>
+          <p class="admin-note">L’administration complète est incluse : suivi des rendez-vous, messages de contact, comptes clientes et mise à jour du statut des demandes.</p>
+        </div>
+        <div class="admin-stats" id="adminStats">
+          <div class="proof-card"><strong>0</strong><span>réservations</span></div>
+          <div class="proof-card"><strong>0</strong><span>messages</span></div>
+          <div class="proof-card"><strong>0</strong><span>clientes</span></div>
+        </div>
+
+        <div class="admin-columns three">
+          <div>
+            <h3>Réservations</h3>
+            <div id="adminBookings" class="admin-list"></div>
+          </div>
+          <div>
+            <h3>Messages</h3>
+            <div id="adminMessages" class="admin-list"></div>
+          </div>
+          <div>
+            <h3>Clientes</h3>
+            <div id="adminUsers" class="admin-list"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast" id="toast">
+    <strong id="toastTitle">Information</strong>
+    <p id="toastMessage"></p>
+  </div>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

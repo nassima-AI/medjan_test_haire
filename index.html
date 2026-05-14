@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medjan Hair — Réservation coiffure à Paris</title>
+  <meta name="description" content="Medjan Hair, salon de coiffure femme à Paris avec prise de rendez-vous, espace cliente et administration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">
+        <span class="brand-mark">MH</span>
+        <span>Medjan Hair<small>Salon premium femme à Paris</small></span>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+      <nav class="nav" id="mainNav">
+        <a href="#prestations">Prestations</a>
+        <a href="#reservation">Réserver</a>
+        <a href="#compte">Compte</a>
+        <a href="#avis">Avis</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="/admin">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="section-kicker">V4 prête pour production</span>
+          <h1>Votre salon de coiffure femme à Paris, élégant, moderne et facile à réserver.</h1>
+          <p>
+            Bienvenue chez <strong>Medjan Hair</strong>, un salon de coiffure femme à Paris ouvert de <strong>9h00 à 19h00</strong>.
+            Le site présente vos prestations, permet la prise de rendez-vous, affiche vos coordonnées et reste prêt pour une vraie mise en ligne.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#reservation">Prendre rendez-vous</a>
+            <a class="btn btn-light" href="/admin">Ouvrir l’admin</a>
+          </div>
+          <div class="hero-proof">
+            <div class="proof-card"><strong>Auth sécurisée</strong><span>cookies HTTP-only + JWT</span></div>
+            <div class="proof-card"><strong>Base réelle</strong><span>SQLite pour les réservations</span></div>
+            <div class="proof-card"><strong>Admin</strong><span>gestion des statuts de rendez-vous</span></div>
+          </div>
+        </div>
+        <div class="hero-panel glass-card">
+          <div class="summary-box">
+            <div class="summary-head"><strong>État du projet</strong><span id="serverState">Vérification...</span></div>
+            <div class="summary-line"><span>API</span><strong id="apiStatus">En attente</strong></div>
+            <div class="summary-line"><span>Paiement en ligne</span><strong id="paymentStatus">Désactivé</strong></div>
+            <div class="summary-line total"><span>WhatsApp</span><strong id="whatsappStatus">En attente</strong></div>
+          </div>
+          <div class="status-panel" id="configPanel">Configuration du salon en cours de lecture...</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prestations">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Prestations & tarifs</span>
+          <h2>Des prestations modernes pour cheveux courts, longs, colorés ou transformés.</h2>
+          <p>J’ai positionné les tarifs dans une fourchette réaliste pour un salon femme moderne à Paris, tout en restant cohérents avec des exemples observés en ligne.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card glass-card">
+            <div class="service-top"><span class="badge">Essentiel</span><strong>35 €</strong></div>
+            <h3>Brushing signature</h3>
+            <p>Brushing souple, wavy ou lisse avec finition soignée et tenue élégante.</p>
+            <ul><li>30 minutes</li><li>Cheveux courts à mi-longs</li><li>Finition salon</li></ul>
+            <button class="btn btn-light select-service" data-service="Brushing signature|35|30">Choisir</button>
+          </article>
+          <article class="service-card glass-card highlighted">
+            <div class="service-top"><span class="badge accent">Le plus demandé</span><strong>59 €</strong></div>
+            <h3>Coupe & brushing</h3>
+            <p>Coupe personnalisée, shampooing et brushing pour une mise en beauté complète.</p>
+            <ul><li>60 minutes</li><li>Diagnostic morpho-visage</li><li>Conseils d’entretien</li></ul>
+            <button class="btn btn-primary select-service" data-service="Coupe & brushing|59|60">Choisir</button>
+          </article>
+          <article class="service-card glass-card">
+            <div class="service-top"><span class="badge">Couleur</span><strong>95 €</strong></div>
+            <h3>Coloration racines & soin</h3>
+            <p>Coloration propre et lumineuse avec soin pour raviver l’éclat des cheveux.</p>
+            <ul><li>1h30</li><li>Couverture des racines</li><li>Soin douceur inclus</li></ul>
+            <button class="btn btn-light select-service" data-service="Coloration racines & soin|95|90">Choisir</button>
+          </article>
+          <article class="service-card glass-card">
+            <div class="service-top"><span class="badge">Lumière</span><strong>145 €</strong></div>
+            <h3>Balayage signature</h3>
+            <p>Effet lumière moderne, naturel et chic pour sublimer les longueurs.</p>
+            <ul><li>2h30</li><li>Patine comprise</li><li>Rendu premium</li></ul>
+            <button class="btn btn-light select-service" data-service="Balayage signature|145|150">Choisir</button>
+          </article>
+          <article class="service-card glass-card">
+            <div class="service-top"><span class="badge">Soin</span><strong>25 €</strong></div>
+            <h3>Soin profond réparateur</h3>
+            <p>Soin nourrissant pour cheveux sensibilisés, secs ou fragilisés.</p>
+            <ul><li>20 minutes</li><li>Brillance et douceur</li><li>En complément ou seul</li></ul>
+            <button class="btn btn-light select-service" data-service="Soin profond réparateur|25|20">Choisir</button>
+          </article>
+          <article class="service-card glass-card">
+            <div class="service-top"><span class="badge">Événement</span><strong>80 €</strong></div>
+            <h3>Coiffure événement</h3>
+            <p>Attache chic, coiffure invitée, brushing glamour ou coiffage occasion spéciale.</p>
+            <ul><li>1h15</li><li>Mariage / soirée / shooting</li><li>Style personnalisé</li></ul>
+            <button class="btn btn-light select-service" data-service="Coiffure événement|80|75">Choisir</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reservation">
+      <div class="container booking-layout">
+        <div class="booking-side glass-card">
+          <span class="section-kicker">Réservation</span>
+          <h2>Une prise de rendez-vous fluide et exploitable.</h2>
+          <p>
+            Le formulaire enregistre les demandes côté serveur, associe la réservation à la cliente si elle est connectée
+            et permet de confirmer le rendez-vous par e-mail, téléphone ou WhatsApp, sans paiement en ligne.
+          </p>
+          <div class="steps">
+            <div class="step"><span>01</span><div><strong>Choix de la prestation</strong><p>Prix et durée se mettent à jour automatiquement.</p></div></div>
+            <div class="step"><span>02</span><div><strong>Date et horaire</strong><p>La demande est envoyée et stockée en base.</p></div></div>
+            <div class="step"><span>03</span><div><strong>Suivi du statut</strong><p>L’admin peut confirmer, terminer ou annuler le rendez-vous.</p></div></div>
+          </div>
+        </div>
+        <div class="booking-card glass-card">
+          <form id="bookingForm" class="booking-form">
+            <div class="form-grid two">
+              <div><label for="fullName">Nom complet</label><input id="fullName" name="fullName" required /></div>
+              <div><label for="phone">Téléphone</label><input id="phone" name="phone" required /></div>
+            </div>
+            <div class="form-grid two">
+              <div><label for="email">E-mail</label><input id="email" name="email" type="email" required /></div>
+              <div>
+                <label for="service">Prestation</label>
+                <select id="service" name="service">
+                  <option value="Brushing signature|35|30">Brushing signature — 35 €</option>
+                  <option value="Coupe & brushing|59|60">Coupe & brushing — 59 €</option>
+                  <option value="Coloration racines & soin|95|90">Coloration racines & soin — 95 €</option>
+                  <option value="Balayage signature|145|150">Balayage signature — 145 €</option>
+                  <option value="Soin profond réparateur|25|20">Soin profond réparateur — 25 €</option>
+                  <option value="Coiffure événement|80|75">Coiffure événement — 80 €</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grid two">
+              <div><label for="date">Date souhaitée</label><input id="date" name="date" type="date" required /></div>
+              <div>
+                <label for="time">Horaire</label>
+                <select id="time" name="time">
+                  <option>09:00</option><option>10:30</option><option>12:00</option><option>14:00</option><option>16:30</option><option>18:00</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grid two">
+              <div>
+                <label for="deposit">Réservation</label>
+                <select id="deposit" name="deposit">
+                  <option value="0">Sans paiement en ligne</option>
+                </select>
+              </div>
+              <div>
+                <label for="confirmMode">Confirmation</label>
+                <select id="confirmMode" name="confirmMode">
+                  <option>E-mail</option><option>Téléphone</option><option>WhatsApp</option>
+                </select>
+              </div>
+            </div>
+            <div><label for="notes">Précisions</label><textarea id="notes" name="notes" placeholder="Demande particulière, préférence, précision couleur..."></textarea></div>
+            <div class="summary-box">
+              <div class="summary-head"><strong>Résumé du rendez-vous</strong><span>temps réel</span></div>
+              <div class="summary-line"><span>Prestation</span><strong id="sumService">Brushing signature</strong></div>
+              <div class="summary-line"><span>Tarif</span><strong id="sumPrice">35 €</strong></div>
+              <div class="summary-line"><span>Durée</span><strong id="sumDuration">30 min</strong></div>
+              <div class="summary-line total"><span>Paiement en ligne</span><strong id="sumDeposit">Aucun</strong></div>
+            </div>
+            <button class="btn btn-primary wide" type="submit">Envoyer ma demande</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="compte">
+      <div class="container account-layout">
+        <div class="account-card glass-card">
+          <span class="section-kicker">Espace cliente</span>
+          <h2>Connexion, suivi et fidélisation.</h2>
+          <p>Une cliente connectée retrouve son historique de rendez-vous et peut facilement reprendre contact avec le salon.</p>
+          <div class="status-panel" id="accountStatus">Aucune session active.</div>
+          <div id="myBookings" class="booking-list-live"></div>
+        </div>
+        <div class="account-forms">
+          <div class="glass-card form-card">
+            <h3>Créer un compte</h3>
+            <form id="registerForm">
+              <input id="registerName" placeholder="Prénom et nom" required />
+              <input id="registerEmail" type="email" placeholder="E-mail" required />
+              <input id="registerPassword" type="password" placeholder="Mot de passe" required />
+              <button class="btn btn-primary wide" type="submit">Créer mon compte</button>
+            </form>
+          </div>
+          <div class="glass-card form-card">
+            <h3>Connexion</h3>
+            <form id="loginForm">
+              <input id="loginEmail" type="email" placeholder="E-mail" required />
+              <input id="loginPassword" type="password" placeholder="Mot de passe" required />
+              <button class="btn btn-light wide" type="submit">Me connecter</button>
+            </form>
+            <button class="btn btn-light wide" type="button" id="logoutBtn">Me déconnecter</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="avis">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="section-kicker">Avis clientes</span>
+          <h2>Des retours positifs qui rassurent avant la réservation.</h2>
+          <p>J’ai ajouté des avis de présentation, élégants et crédibles, que tu pourras remplacer plus tard par de vrais retours clientes Google, WhatsApp ou Instagram.</p>
+        </div>
+        <div class="review-grid">
+          <article class="glass-card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>Très belle découverte à Paris. L’accueil est doux, le brushing tient vraiment bien et le résultat est exactement ce que je voulais.</p>
+            <strong>Sarah M.</strong>
+          </article>
+          <article class="glass-card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>Salon très propre, ambiance élégante et professionnelle. Ma couleur était lumineuse et mes cheveux sont restés souples après le soin.</p>
+            <strong>Inès B.</strong>
+          </article>
+          <article class="glass-card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>J’ai réservé facilement, la coupe était parfaitement adaptée à mon visage et le coiffage était superbe. Je recommande sans hésiter.</p>
+            <strong>Nadia K.</strong>
+          </article>
+          <article class="glass-card review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>Balayage magnifique, naturel et très moderne. On sent le soin du détail et le résultat fait vraiment haut de gamme.</p>
+            <strong>Camélia R.</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="section-kicker">FAQ</span>
+          <h2>Une base prête à être mise en ligne et à personnaliser.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item glass-card" open><summary>Où se situe Medjan Hair ?</summary><p>Le salon est situé à Paris et accueille les clientes sur rendez-vous de 9h00 à 19h00.</p></details>
+          <details class="faq-item glass-card"><summary>Faut-il payer en ligne pour réserver ?</summary><p>Non. La réservation se fait sans paiement en ligne. La confirmation peut ensuite se faire par téléphone, e-mail ou WhatsApp.</p></details>
+          <details class="faq-item glass-card"><summary>Peut-on gérer les rendez-vous ?</summary><p>Oui, l’admin peut consulter les demandes et modifier leur statut.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-panel glass-card">
+          <span class="section-kicker">Contact</span>
+          <h2>Recevoir les demandes client</h2>
+          <p>Le formulaire enregistre les messages côté serveur pour qu’ils apparaissent dans l’administration. Les coordonnées du salon sont déjà intégrées selon tes indications.</p>
+          <div class="contact-items">
+            <div class="contact-item"><strong>Téléphone</strong><span>06 50 03 97 86</span></div>
+            <div class="contact-item"><strong>WhatsApp</strong><span id="whatsInfo">06 50 03 97 86</span></div>
+            <div class="contact-item"><strong>Adresse</strong><span>Paris</span></div>
+            <div class="contact-item"><strong>Horaires</strong><span>9h00 à 19h00</span></div>
+          </div>
+        </div>
+        <div class="contact-form-card glass-card">
+          <h3>Formulaire de contact</h3>
+          <form id="contactForm">
+            <div class="form-grid two">
+              <input id="contactName" placeholder="Votre nom" required />
+              <input id="contactEmail" type="email" placeholder="Votre e-mail" required />
+            </div>
+            <input id="contactSubject" placeholder="Sujet" required />
+            <textarea id="contactMessage" placeholder="Votre message" required></textarea>
+            <button class="btn btn-primary wide" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">
+    <strong id="toastTitle">Information</strong>
+    <p id="toastMessage"></p>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
